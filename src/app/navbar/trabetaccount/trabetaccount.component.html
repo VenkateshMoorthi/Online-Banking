@@ -1,0 +1,38 @@
+<br><br>
+<div class="container main">
+    <div class="row">
+        <div class="col-md-6">
+            <form [formGroup]='trabetForm' (ngSubmit)="transfer()">
+                <div class="form-group" >
+                    <label for="transferfrom">1. Please select the account you would like to transfer from:</label>
+                    <select class="form-control" name="transferfrom" id="transferfrom" [formControl]="transferfrom" (change)="change()">
+                        <option disabled="disabled" selected="selected"> -- select your account -- </option>
+                        <option value="Primary">Primary</option>
+                        <option value="Savings">Savings</option>
+                    </select>
+                    <br />
+                </div>
+                <div class="form-group" >
+                    <label for="transferto">2. Please select the account you would like to transfer to:</label>
+                    <select class="form-control" name="transferto" id="transferto" [formControl]="transferto" (change)="change()">
+                        <option disabled="disabled" selected="selected"> -- select your account -- </option>
+                        <option value="Primary">Primary</option>
+                        <option value="Savings">Savings</option>
+                    </select>
+                    <br />
+                </div>
+                <div class="form-group">
+                    <label>3. Please specify the amount you would like to transfer: </label>
+                    <span class="input-group-addon">Amount $</span>
+                    <input type="text" name="amount" id="amount" class="form-control" aria-label="Amount (to the nearest dollar)"
+                            [formControl]="amount"/>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Transfer</button>
+            </form>
+
+            <div class="col-md-6">
+            </div>
+        </div>
+    </div>
+</div>

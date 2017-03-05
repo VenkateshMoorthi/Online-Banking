@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+       <div class="col-12 col-md-auto well card">
+            <div class="panel-title text-center">
+                <h1 class="title">Sign Up</h1>
+                <hr />
+            </div>
+            <form [formGroup]='signupForm' (ngSubmit)="signUp()" class="card-header">
+              <div class="form-group">
+                <label for="firstname">
+                  First Name
+                </label>
+                <input class="form-control"
+                       type="text"
+                       id="firstname"
+                       [formControl]="firstname" 
+                       placeholder="Enter your first name">     
+              </div>
+              <div class="form-group">
+                <label for="lastname">
+                  Last Name
+                </label>
+                <input class="form-control"
+                       type="text"
+                       id="lastname"
+                       [formControl]="lastname" 
+                       placeholder="Enter your last name">
+              </div>
+              <div class="form-group">
+                <label for="phone">
+                  Phone
+                </label>
+                <input class="form-control"
+                       type="text"
+                       id="phone"
+                       [formControl]="phone" 
+                       placeholder="Enter your phone number">
+              </div>
+              <div class="form-group">
+                <label for="email">
+                  Email
+                </label>
+                <input class="form-control"
+                       type="text"
+                       id="email"
+                       [formControl]="email" 
+                       placeholder="Enter your Email">
+                <div [hidden]="!email.hasError('EmailExists')"
+                      class="alert alert-danger">
+                    Email is already present
+                </div>                
+              </div>
+              <div class="form-group">
+                <label for="username">
+                  User Name
+                </label>
+                <input class="form-control"
+                       type="text"
+                       id="username"
+                       [formControl]="username" 
+                       placeholder="Enter your Username">
+                <div [hidden]="!username.hasError('UsernameExists')"
+                      class="alert alert-danger">
+                    Username is already present
+                </div>           
+              </div>
+              <div class="form-group">
+                <label for="password">
+                  Password
+                </label>
+                <input class="form-control"
+                       type="password"
+                       id="password"
+                       [formControl]="password"
+                       show-hide-input 
+                       placeholder="Enter your Password">
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" (click)="showPassword()">
+                    Show password
+                </label>
+             </div>  
+             <button  class="btn btn-primary btn-block "
+                 type="submit" 
+                 [disabled]="!signupForm.valid">Sign Up</button>
+            </form>
+            <hr />  
+      <div class="form-group ">
+        <button  class="btn btn-info btn-block"
+                 type="submit"
+                 (click)="cancel()" 
+                 >cancel</button>
+      </div>
+        </div>
+    </div>
+</div>
